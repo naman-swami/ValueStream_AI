@@ -1,0 +1,969 @@
+2026-07-06 21:16:27,622 [INFO] Testing real video: news_test_video.mp4
+2026-07-06 21:19:51,491 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/audio/transcriptions "HTTP/1.1 200 OK"
+2026-07-06 21:19:52,954 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:09,182 [INFO] [Agent 1: Extractor] Synthesizing Telemetry -> Type: mixed | Scenes: 25 | Words: 299
+2026-07-06 21:27:09,183 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-06 21:27:09,184 [INFO] [Agent 2: Creator] Drafting initial 4-tone comedy captions...
+2026-07-06 21:27:11,410 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:11,425 [INFO] [Agent 3: Judge] Evaluating comedic punchiness and tone adherence...
+2026-07-06 21:27:12,274 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:12,312 [INFO] [Agent 3: Judge Report] Iter 1: Score 72/100 [REFINING] -> Judge Note: To improve the sarcastic caption, add more biting commentary on the current events. For humorous_tech, incorporate more clever programmer references that are relevant to the news. For humorous_non_tech, focus on creating a more cohesive and unexpected punchline. Consider adding a twist to the 'protesters unite' concept that is more surprising and humorous.
+2026-07-06 21:27:12,313 [INFO] 
+--- [Agentic Loop: Iteration 2/3] ---
+2026-07-06 21:27:12,314 [INFO] [Agent 2: Creator] Upgrading captions based on Agent 3 critique (Prev Score: 72/100)...
+2026-07-06 21:27:14,367 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:14,490 [INFO] [Agent 3: Judge] Evaluating comedic punchiness and tone adherence...
+2026-07-06 21:27:15,333 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:15,345 [INFO] [Agent 3: Judge Report] Iter 2: Score 82/100 [REFINING] -> Judge Note: To improve the humorous captions, focus on creating unexpected connections between the ski resort and the protests. Use wordplay and clever turns of phrase to elevate the sarcastic and humorous tech captions. For example, instead of saying 'the perfect combo: snow sports and societal unrest', try 'it's a powder keg of protests and powder snow'. For the humorous non-tech caption, consider a more relatable scenario, such as 'who needs a ski lift when you can protest your way to the top?'
+2026-07-06 21:27:15,346 [INFO] 
+--- [Agentic Loop: Iteration 3/3] ---
+2026-07-06 21:27:15,347 [INFO] [Agent 2: Creator] Upgrading captions based on Agent 3 critique (Prev Score: 82/100)...
+2026-07-06 21:27:15,878 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
+2026-07-06 21:27:15,883 [INFO] Retrying request to /openai/v1/chat/completions in 17.000000 seconds
+2026-07-06 21:27:34,691 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:34,703 [INFO] [Agent 3: Judge] Evaluating comedic punchiness and tone adherence...
+2026-07-06 21:27:35,874 [INFO] HTTP Request: POST https://api.groq.com/openai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-06 21:27:35,885 [INFO] [Agent 3: Judge Report] Iter 3: Score 82/100 [REFINING] -> Judge Note: To improve the humorous_tech_score, incorporate more clever programmer inside jokes, such as comparing the protests to a 'denial of service' attack or the security measures to a 'firewall'. For the sarcastic_score, amplify the dry wit by highlighting the absurdity of the situations, like the juxtaposition of a luxurious ski resort with the unrest in nearby regions. Refine the humorous_non_tech_score by making the analogies more unexpected and creative, such as comparing the protesters to 'freestyle skiers' navigating the challenges of social change.
+2026-07-06 21:27:36,296 [INFO] HTTP Request: POST http://testserver/api/v1/caption/agentic "HTTP/1.1 200 OK"
+2026-07-06 21:27:36,298 [INFO] Status: 200
+2026-07-07 20:53:07,575 [INFO] Testing real video: news_test_video.mp4
+2026-07-07 20:54:53,440 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/openai/v1/audio/transcriptions "HTTP/1.1 404 Not Found"
+2026-07-07 20:59:56,524 [ERROR] Exception occurred: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp109gnhhp.mp4'
+2026-07-07 21:09:32,794 [INFO] Testing real video: news_test_video.mp4
+2026-07-07 21:10:56,169 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpfqz2rz1m.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpfqz2rz1m.mp3']' timed out after 14.999966100000165 seconds
+2026-07-07 21:12:26,080 [INFO] [Agent 1: Extractor] Synthesizing Telemetry -> Type: visual_heavy | Scenes: 11 | Words: 0
+2026-07-07 21:12:26,097 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-07 21:12:26,098 [INFO] [Agent 2: Creator] Drafting initial 4-tone comedy captions...
+2026-07-07 21:12:47,168 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/openai/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-07 21:12:47,898 [INFO] HTTP Request: POST http://testserver/api/v1/caption/agentic "HTTP/1.1 500 Internal Server Error"
+2026-07-07 21:12:47,900 [INFO] Status: 500
+2026-07-07 21:12:47,901 [ERROR] ERROR: {"detail":"Failed to process video: Error code: 404 - {'error': {'message': 'Path not found: /v1/openai/v1/chat/completions', 'param': None, 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'b00d5e8b-6f82-4959-8d3b-12e0ebd6d96b'}"}
+2026-07-07 21:19:11,879 [INFO] Testing real video: news_test_video.mp4
+2026-07-07 21:21:09,078 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpcjzaq1ca.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpcjzaq1ca.mp3']' timed out after 14.999964899999213 seconds
+2026-07-07 21:22:38,377 [INFO] [Agent 1: Extractor] Synthesizing Telemetry -> Type: visual_heavy | Scenes: 11 | Words: 0
+2026-07-07 21:22:38,404 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-07 21:22:38,405 [INFO] [Agent 2: Creator] Drafting initial 4-tone comedy captions...
+2026-07-07 21:23:02,033 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-07 21:23:02,427 [INFO] HTTP Request: POST http://testserver/api/v1/caption/agentic "HTTP/1.1 500 Internal Server Error"
+2026-07-07 21:23:02,429 [INFO] Status: 500
+2026-07-07 21:23:02,430 [ERROR] ERROR: {"detail":"Failed to process video: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-63ddb043ef224f2d9fe9fe634ff9d8ed'}"}
+2026-07-07 21:38:47,430 [INFO] Testing real video: news_test_video.mp4
+2026-07-07 21:39:46,963 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp4t6d9cj3.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp4t6d9cj3.mp3']' timed out after 14.999929200001134 seconds
+2026-07-08 21:20:49,678 [INFO] Testing real video: news_test_video.mp4
+2026-07-08 21:21:44,940 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp85c89k28.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp85c89k28.mp3']' timed out after 14.999984799999766 seconds
+2026-07-08 21:22:01,034 [INFO] ============================================================
+2026-07-08 21:22:01,035 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-08 21:22:01,035 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:22:01,035 [INFO] ============================================================
+2026-07-08 21:22:18,478 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:22:18,550 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video appears to be a news broadcast from a program called "R. RISE," featuring a female news anchor with long dark ...
+2026-07-08 21:22:18,550 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 11 | Words: 0 | Frames: 8 | Visual: 1076 chars
+2026-07-08 21:22:18,550 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:22:18,561 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-08 21:22:18,561 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-08 21:22:18,706 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-08 21:22:18,811 [INFO] HTTP Request: POST http://testserver/api/v1/caption/agentic "HTTP/1.1 500 Internal Server Error"
+2026-07-08 21:22:18,812 [INFO] Status: 500
+2026-07-08 21:22:18,812 [ERROR] ERROR: {"detail":"Failed to process video: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-b1d7df07066640b8bb7b47c2ed44c435'}"}
+2026-07-08 21:25:55,589 [INFO] Testing real video: news_test_video.mp4
+2026-07-08 21:26:26,731 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpl675be3h.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpl675be3h.mp3']' timed out after 14.999987999999576 seconds
+2026-07-08 21:26:55,879 [INFO] ============================================================
+2026-07-08 21:26:55,879 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-08 21:26:55,880 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:26:55,880 [INFO] ============================================================
+2026-07-08 21:27:07,005 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:27:07,105 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video features a news broadcast from a program called "R. RISE," beginning with a female news anchor seated at a sle...
+2026-07-08 21:27:07,106 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 11 | Words: 0 | Frames: 8 | Visual: 1107 chars
+2026-07-08 21:27:07,106 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:27:07,120 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-08 21:27:07,121 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-08 21:27:33,587 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:27:33,591 [INFO] [Agent 3: Dual-Judge] Launching parallel consensus evaluation...
+2026-07-08 21:27:33,591 [INFO] [Agent 3: Dual-Judge] Running parallel consensus evaluation (Iteration 1)...
+2026-07-08 21:27:37,691 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:27:37,806 [INFO] [Agent 3: Judge A / MiniMax-M3] Factual score: 92, Approved: True
+2026-07-08 21:27:54,616 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:27:54,617 [WARNING] [Agent 3: Judge B] Gemma evaluation failed: Expecting value: line 1 column 19 (char 18). Default approving.
+2026-07-08 21:27:54,618 [INFO] [Agent 3: Consensus] Judge A: PASS | Judge B: PASS | Overall: 85/100 | Consensus: ACCEPTED
+2026-07-08 21:27:54,632 [INFO] [Loop Result] Iter 1: Score 85/100 [ACCEPTED] | JudgeA(PASS) JudgeB(PASS) -> Both judges approved. Captions meet quality standards.
+2026-07-08 21:27:54,632 [INFO] [Pipeline] Consensus reached! Score 85 >= 85
+2026-07-08 21:27:54,632 [INFO] [Pipeline] Dual-Model Ensemble workflow complete.
+2026-07-08 21:27:54,773 [INFO] HTTP Request: POST http://testserver/api/v1/caption/agentic "HTTP/1.1 200 OK"
+2026-07-08 21:27:54,773 [INFO] Status: 200
+2026-07-08 21:43:52,038 [INFO] HTTP Request: GET http://testserver/ "HTTP/1.1 200 OK"
+2026-07-08 21:50:06,768 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpb6apn4pg.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpb6apn4pg.mp3']' timed out after 14.99998449999839 seconds
+2026-07-08 21:50:56,859 [INFO] ============================================================
+2026-07-08 21:50:56,860 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-08 21:50:56,860 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:50:56,860 [INFO] ============================================================
+2026-07-08 21:51:08,343 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:51:08,403 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video frames appear to be from a promotional or informational piece about a futuristic technology called "NeuroVisio...
+2026-07-08 21:51:08,403 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 16 | Words: 0 | Frames: 8 | Visual: 1401 chars
+2026-07-08 21:51:08,403 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-08 21:51:08,407 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-08 21:51:08,407 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-08 21:51:49,497 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:51:49,502 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 5 column 22 (char 1059)
+2026-07-08 21:52:03,705 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:52:03,708 [INFO] [Agent 3: Dual-Judge] Launching parallel consensus evaluation...
+2026-07-08 21:52:03,708 [INFO] [Agent 3: Dual-Judge] Running parallel consensus evaluation (Iteration 1)...
+2026-07-08 21:52:05,698 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:52:05,700 [INFO] [Agent 3: Judge A / MiniMax-M3] Factual score: 92, Approved: True
+2026-07-08 21:52:25,316 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-08 21:52:25,319 [WARNING] [Agent 3: Judge B] Gemma evaluation failed: Expecting value: line 1 column 1 (char 0). Default approving.
+2026-07-08 21:52:25,319 [INFO] [Agent 3: Consensus] Judge A: PASS | Judge B: PASS | Overall: 85/100 | Consensus: ACCEPTED
+2026-07-08 21:52:25,348 [INFO] [Loop Result] Iter 1: Score 85/100 [ACCEPTED] | JudgeA(PASS) JudgeB(PASS) -> Both judges approved. Captions meet quality standards.
+2026-07-08 21:52:25,348 [INFO] [Pipeline] Consensus reached! Score 85 >= 85
+2026-07-08 21:52:25,348 [INFO] [Pipeline] Dual-Model Ensemble workflow complete.
+2026-07-09 20:25:51,059 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpzp9z81bx.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpzp9z81bx.mp3']' timed out after 14.999959000000672 seconds
+2026-07-09 21:02:32,837 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpgvryhsfc.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpgvryhsfc.mp3']' timed out after 15 seconds
+2026-07-09 21:04:23,312 [INFO] ============================================================
+2026-07-09 21:04:23,314 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-09 21:04:23,314 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:04:23,315 [INFO] ============================================================
+2026-07-09 21:05:06,963 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:05:07,074 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video appears to be a news broadcast from a program called "R. RISE," beginning in a modern, brightly lit studio whe...
+2026-07-09 21:05:07,075 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 11 | Words: 0 | Frames: 8 | Visual: 1064 chars
+2026-07-09 21:05:07,075 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:05:07,076 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-09 21:05:07,077 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-09 21:05:24,369 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:05:24,381 [INFO] [Agent 3: Dual-Judge] Launching parallel consensus evaluation...
+2026-07-09 21:05:24,382 [INFO] [Agent 3: Dual-Judge] Running parallel consensus evaluation (Iteration 1)...
+2026-07-09 21:05:26,357 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:05:26,363 [INFO] [Agent 3: Judge A / MiniMax-M3] Factual score: 92, Approved: True
+2026-07-09 21:05:33,376 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:05:33,385 [WARNING] [Agent 3: Judge B] Gemma evaluation failed: Expecting value: line 1 column 1 (char 0). Default approving.
+2026-07-09 21:05:33,386 [INFO] [Agent 3: Consensus] Judge A: PASS | Judge B: PASS | Overall: 85/100 | Consensus: ACCEPTED
+2026-07-09 21:05:33,387 [INFO] [Loop Result] Iter 1: Score 85/100 [ACCEPTED] | JudgeA(PASS) JudgeB(PASS) -> Both judges approved. Captions meet quality standards.
+2026-07-09 21:05:33,388 [INFO] [Pipeline] Consensus reached! Score 85 >= 85
+2026-07-09 21:05:33,389 [INFO] [Pipeline] Dual-Model Ensemble workflow complete.
+2026-07-09 21:13:30,639 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpeyxhgm32.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpeyxhgm32.mp3']' timed out after 15 seconds
+2026-07-09 21:14:14,792 [INFO] ============================================================
+2026-07-09 21:14:14,793 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-09 21:14:14,794 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:14:14,794 [INFO] ============================================================
+2026-07-09 21:14:26,280 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:14:26,286 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video is a YouTube compilation titled "Funniest Cat Videos Compilation in 2 Minute" by the channel "funniestcats749,...
+2026-07-09 21:14:26,287 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 35 | Words: 0 | Frames: 8 | Visual: 1114 chars
+2026-07-09 21:14:26,287 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:14:26,288 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-09 21:14:26,289 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-09 21:15:03,707 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:15:03,717 [INFO] [Agent 3: Dual-Judge] Launching parallel consensus evaluation...
+2026-07-09 21:15:03,717 [INFO] [Agent 3: Dual-Judge] Running parallel consensus evaluation (Iteration 1)...
+2026-07-09 21:15:06,616 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:15:06,622 [INFO] [Agent 3: Judge A / MiniMax-M3] Factual score: 92, Approved: True
+2026-07-09 21:15:19,499 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:15:19,508 [WARNING] [Agent 3: Judge B] Gemma evaluation failed: Expecting value: line 1 column 19 (char 18). Default approving.
+2026-07-09 21:15:19,509 [INFO] [Agent 3: Consensus] Judge A: PASS | Judge B: PASS | Overall: 85/100 | Consensus: ACCEPTED
+2026-07-09 21:15:19,510 [INFO] [Loop Result] Iter 1: Score 85/100 [ACCEPTED] | JudgeA(PASS) JudgeB(PASS) -> Both judges approved. Captions meet quality standards.
+2026-07-09 21:15:19,510 [INFO] [Pipeline] Consensus reached! Score 85 >= 85
+2026-07-09 21:15:19,511 [INFO] [Pipeline] Dual-Model Ensemble workflow complete.
+2026-07-09 21:31:44,467 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp3tbtqph4.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp3tbtqph4.mp3']' timed out after 15 seconds
+2026-07-09 21:33:04,380 [INFO] ============================================================
+2026-07-09 21:33:04,381 [INFO] [Pipeline] Starting Dual-Model Ensemble Agentic Workflow
+2026-07-09 21:33:04,382 [INFO] [Pipeline] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:33:04,382 [INFO] ============================================================
+2026-07-09 21:33:20,597 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:33:20,693 [INFO] [Agent 1: Vision] MiniMax-M3 scene description: The video appears to be a YouTube Shorts-style content piece, beginning with a thumbnail titled "Two 2-minute Rules to B...
+2026-07-09 21:33:20,694 [INFO] [Agent 1: Extractor] Dual-Stream Telemetry -> Type: visual_heavy | Scenes: 19 | Words: 0 | Frames: 8 | Visual: 908 chars
+2026-07-09 21:33:20,695 [INFO] [Telemetry] Powered by Google DeepMind Gemma 4 31B IT & MiniMax-M3
+2026-07-09 21:33:20,695 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-09 21:33:20,696 [INFO] [Agent 2: Creator / Gemma] Drafting initial 4-tone captions...
+2026-07-09 21:33:51,092 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:33:51,107 [INFO] [Agent 3: Dual-Judge] Launching parallel consensus evaluation...
+2026-07-09 21:33:51,108 [INFO] [Agent 3: Dual-Judge] Running parallel consensus evaluation (Iteration 1)...
+2026-07-09 21:33:53,559 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:33:53,566 [INFO] [Agent 3: Judge A / MiniMax-M3] Factual score: 82, Approved: True
+2026-07-09 21:34:00,501 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-09 21:34:00,508 [WARNING] [Agent 3: Judge B] Gemma evaluation failed: Expecting value: line 1 column 1 (char 0). Default approving.
+2026-07-09 21:34:00,510 [INFO] [Agent 3: Consensus] Judge A: PASS | Judge B: PASS | Overall: 85/100 | Consensus: ACCEPTED
+2026-07-09 21:34:00,510 [INFO] [Loop Result] Iter 1: Score 85/100 [ACCEPTED] | JudgeA(PASS) JudgeB(PASS) -> Both judges approved. Captions meet quality standards.
+2026-07-09 21:34:00,511 [INFO] [Pipeline] Consensus reached! Score 85 >= 85
+2026-07-09 21:34:00,511 [INFO] [Pipeline] Dual-Model Ensemble workflow complete.
+2026-07-10 21:09:45,836 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpwkv1amul.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpwkv1amul.mp3']' timed out after 14.999959200000376 seconds
+2026-07-10 21:10:21,297 [INFO] ============================================================
+2026-07-10 21:10:21,298 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-10 21:10:21,298 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-0324 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-10 21:10:21,299 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-10 21:10:21,300 [INFO] ============================================================
+2026-07-10 21:10:49,940 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:10:50,191 [INFO] [Agent 1: Perception] Merged document: 671 chars, 0 speech blocks, 4 visual tags.
+2026-07-10 21:10:50,192 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 10 | Words: 0 | Frames: 8
+2026-07-10 21:10:50,193 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-10 21:10:50,358 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-10 21:29:55,316 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpu70jpo1p.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpu70jpo1p.mp3']' timed out after 14.99996259999989 seconds
+2026-07-10 21:30:07,643 [INFO] ============================================================
+2026-07-10 21:30:07,644 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-10 21:30:07,645 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-10 21:30:07,645 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-10 21:30:07,646 [INFO] ============================================================
+2026-07-10 21:30:22,584 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:30:22,677 [INFO] [Agent 1: Perception] Merged document: 741 chars, 0 speech blocks, 4 visual tags.
+2026-07-10 21:30:22,678 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 10 | Words: 0 | Frames: 8
+2026-07-10 21:30:22,679 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-10 21:30:36,863 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:30:36,913 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:30:51,052 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:30:51,061 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:31:05,847 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:05,858 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:31:14,821 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:21,821 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:21,833 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-10 21:31:23,765 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:23,774 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Unterminated string starting at: line 10 column 1 (char 163). Default passing.
+2026-07-10 21:31:23,776 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-10 21:31:23,777 [INFO] [Loop Result] Iter 1: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-10 21:31:23,778 [INFO] 
+--- [Agentic Loop: Iteration 2/2] ---
+2026-07-10 21:31:39,429 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:39,440 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:31:52,229 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:31:52,240 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:32:04,345 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:32:04,357 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:32:24,980 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:32:30,050 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:32:30,062 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-10 21:32:31,532 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:32:31,545 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-10 21:32:31,547 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-10 21:32:31,548 [INFO] [Loop Result] Iter 2: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-10 21:32:31,549 [INFO] [Pipeline v2] Complete. Best score: 83/100 across 2 iteration(s).
+2026-07-10 21:38:48,170 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp64ngi69_.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp64ngi69_.mp3']' timed out after 14.99998450000021 seconds
+2026-07-10 21:44:13,414 [INFO] ============================================================
+2026-07-10 21:44:13,414 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-10 21:44:13,415 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-10 21:44:13,416 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-10 21:44:13,417 [INFO] ============================================================
+2026-07-10 21:44:20,766 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:44:20,775 [INFO] [Agent 1: Perception] Merged document: 260 chars, 1 speech blocks, 1 visual tags.
+2026-07-10 21:44:20,777 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 45 | Words: 0 | Frames: 8
+2026-07-10 21:44:20,777 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-10 21:44:33,793 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:44:33,803 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:44:47,386 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:44:47,393 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:45:01,114 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:45:01,125 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-10 21:45:16,125 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:45:19,781 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:45:20,957 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-10 21:45:20,967 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-10 21:45:20,969 [INFO] [Agent 3: Dual Panel] Score 92/100 | Grounding=30 Schema=10 Density=15 Visual=17 Tone=20 | HardFail=False | Passed=True
+2026-07-10 21:45:20,971 [INFO] [Loop Result] Iter 1: Score 92/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-10 21:45:20,972 [INFO] [Pipeline v2] Consensus APPROVED! Score 92 >= 85
+2026-07-10 21:45:20,973 [INFO] [Pipeline v2] Complete. Best score: 92/100 across 1 iteration(s).
+2026-07-11 19:56:34,068 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpnrprvp45.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpnrprvp45.mp3']' timed out after 14.999957699999868 seconds
+2026-07-11 19:59:43,239 [INFO] ============================================================
+2026-07-11 19:59:43,240 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-11 19:59:43,241 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-11 19:59:43,242 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-11 19:59:43,242 [INFO] ============================================================
+2026-07-11 19:59:43,244 [WARNING] [Agent 1: Perception] MiniMax-M3 merge failed: Fireworks AI API Key not provided. Please enter your API Key in the UI.. Falling back to transcript-only.
+2026-07-11 19:59:43,244 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 37 | Words: 0 | Frames: 8
+2026-07-11 19:59:43,266 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-11 20:51:25,166 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp55s0fqrg.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp55s0fqrg.mp3']' timed out after 14.99996100000044 seconds
+2026-07-11 20:55:37,429 [INFO] ============================================================
+2026-07-11 20:55:37,432 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-11 20:55:37,433 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-11 20:55:37,441 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-11 20:55:37,442 [INFO] ============================================================
+2026-07-11 20:56:13,355 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:56:13,583 [INFO] [Agent 1: Perception] Merged document: 280 chars, 0 speech blocks, 1 visual tags.
+2026-07-11 20:56:13,584 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 37 | Words: 0 | Frames: 8
+2026-07-11 20:56:13,584 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-11 20:56:32,511 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:56:32,524 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:56:49,450 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:56:49,463 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:57:14,198 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:57:14,210 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:57:26,600 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:57:51,756 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:57:51,767 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-11 20:57:53,602 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:57:53,611 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 20:57:53,612 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 20:57:53,614 [INFO] [Loop Result] Iter 1: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 20:57:53,615 [INFO] 
+--- [Agentic Loop: Iteration 2/2] ---
+2026-07-11 20:58:16,058 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:58:16,074 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:58:37,417 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:58:37,429 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:58:57,197 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:58:57,211 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 20:59:10,090 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:59:30,744 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:59:30,755 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 20:59:30,819 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 20:59:30,829 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-11 20:59:30,831 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 20:59:30,832 [INFO] [Loop Result] Iter 2: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 20:59:30,833 [INFO] [Pipeline v2] Complete. Best score: 83/100 across 2 iteration(s).
+2026-07-11 21:15:47,314 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpv93y5ut8.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpv93y5ut8.mp3']' timed out after 14.99997220000023 seconds
+2026-07-11 21:17:45,318 [INFO] ============================================================
+2026-07-11 21:17:45,319 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-11 21:17:45,320 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-11 21:17:45,321 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-11 21:17:45,322 [INFO] ============================================================
+2026-07-11 21:18:06,579 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:18:06,718 [INFO] [Agent 1: Perception] Merged document: 758 chars, 0 speech blocks, 4 visual tags.
+2026-07-11 21:18:06,719 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 37 | Words: 0 | Frames: 8
+2026-07-11 21:18:06,720 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-11 21:18:30,271 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:18:30,288 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:18:51,898 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:18:51,910 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:19:09,262 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:19:09,271 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:19:37,256 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:19:55,654 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:19:56,566 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:19:56,575 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 21:19:56,576 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 21:19:56,577 [INFO] [Loop Result] Iter 1: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 21:19:56,578 [INFO] 
+--- [Agentic Loop: Iteration 2/2] ---
+2026-07-11 21:20:16,698 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:20:16,711 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:20:35,247 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:20:35,259 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:20:52,544 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:20:52,555 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:21:13,897 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:21:28,030 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:21:28,040 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 21:21:29,914 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:21:29,927 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 21:21:29,928 [INFO] [Loop Result] Iter 2: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 21:21:29,929 [INFO] [Pipeline v2] Complete. Best score: 83/100 across 2 iteration(s).
+2026-07-11 21:27:41,761 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp0kqgywzq.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp0kqgywzq.mp3']' timed out after 14.99997280000025 seconds
+2026-07-11 21:29:24,472 [INFO] ============================================================
+2026-07-11 21:29:24,473 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-11 21:29:24,474 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-11 21:29:24,474 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-11 21:29:24,475 [INFO] ============================================================
+2026-07-11 21:29:35,158 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:29:35,165 [INFO] [Agent 1: Perception] Merged document: 578 chars, 0 speech blocks, 4 visual tags.
+2026-07-11 21:29:35,166 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 28 | Words: 0 | Frames: 5
+2026-07-11 21:29:35,167 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-11 21:29:54,051 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:29:54,058 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 2 column 11 (char 12)
+2026-07-11 21:30:12,039 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:30:12,047 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:30:30,206 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:30:30,222 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:31:36,079 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:31:53,830 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:31:53,837 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-11 21:31:54,483 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:31:54,492 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 21:31:54,494 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 21:31:54,495 [INFO] [Loop Result] Iter 1: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 21:31:54,496 [INFO] 
+--- [Agentic Loop: Iteration 2/2] ---
+2026-07-11 21:32:12,591 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:32:12,601 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:32:39,445 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:32:39,452 [WARNING] [Agent 2: Warning] Parse error attempt 2: Unterminated string starting at: line 3 column 14 (char 339)
+2026-07-11 21:32:59,178 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:32:59,190 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 21:33:17,933 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:33:32,115 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:33:32,121 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: expected string or bytes-like object, got 'NoneType'. Default passing.
+2026-07-11 21:33:33,748 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 21:33:33,756 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Default passing.
+2026-07-11 21:33:33,757 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=25 Schema=9 Density=12 Visual=17 Tone=20 | HardFail=False | Passed=False
+2026-07-11 21:33:33,758 [INFO] [Loop Result] Iter 2: Score 83/100 [REFINING] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 21:33:33,758 [INFO] [Pipeline v2] Complete. Best score: 83/100 across 2 iteration(s).
+2026-07-11 21:57:17,479 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp2ky62n03.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp2ky62n03.mp3']' timed out after 14.999960899998769 seconds
+2026-07-11 22:01:06,348 [INFO] ============================================================
+2026-07-11 22:01:06,349 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-11 22:01:06,350 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-11 22:01:06,351 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-11 22:01:06,351 [INFO] ============================================================
+2026-07-11 22:01:23,818 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:01:23,980 [INFO] [Agent 1: Perception] Merged document: 426 chars, 0 speech blocks, 3 visual tags.
+2026-07-11 22:01:23,981 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 13 | Words: 0 | Frames: 8
+2026-07-11 22:01:23,982 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-11 22:01:50,474 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:01:50,490 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-11 22:02:11,747 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:02:11,760 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-11 22:02:33,062 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:02:33,075 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-11 22:03:02,554 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:03:16,146 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:03:19,225 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-11 22:03:19,233 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-11 22:03:19,235 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-11 22:03:19,236 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-11 22:03:19,237 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 85
+2026-07-11 22:03:19,237 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s).
+2026-07-12 15:21:02,494 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp12oq1wr4.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp12oq1wr4.mp3']' timed out after 14.99996099999953 seconds
+2026-07-12 15:26:06,638 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpa_v4lfj3.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpa_v4lfj3.mp3']' timed out after 14.999959799999488 seconds
+2026-07-12 15:26:38,808 [INFO] ============================================================
+2026-07-12 15:26:38,810 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 15:26:38,811 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 15:26:38,812 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 15:26:38,813 [INFO] ============================================================
+2026-07-12 15:27:04,094 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-07-12 15:27:04,148 [WARNING] [Agent 1: Perception] MiniMax-M3 merge failed: Error code: 401 - {'error': {'message': 'The API key you provided is invalid.', 'param': None, 'code': 'UNAUTHORIZED', 'type': 'error'}, 'request_id': 'chatcmpl-d5b0a7fbb4f44202be464ecdf3bc0325'}. Falling back to transcript-only.
+2026-07-12 15:27:04,150 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 10 | Words: 0 | Frames: 8
+2026-07-12 15:27:04,151 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 15:27:09,500 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2026-07-12 15:27:09,554 [ERROR] [Async Job Error] 219b5d59-b9e6-42a8-8efc-af47ce8f2cef: 500: Failed to process video: Error code: 401 - {'error': {'message': 'The API key you provided is invalid.', 'param': None, 'code': 'UNAUTHORIZED', 'type': 'error'}, 'request_id': 'chatcmpl-68a333811eb04f6db1635e596f61a3f9'}
+2026-07-12 15:29:07,226 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 15:29:07,231 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 15:29:21,288 [INFO] ============================================================
+2026-07-12 15:29:21,289 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 15:29:21,289 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 15:29:21,290 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 15:29:21,291 [INFO] ============================================================
+2026-07-12 15:29:29,470 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:29:29,606 [INFO] [Agent 1: Perception] Merged document: 601 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 15:29:29,607 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 10 | Words: 0 | Frames: 8
+2026-07-12 15:29:29,608 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 15:29:47,452 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:29:47,472 [INFO] [Lexical Pre-Filter] HARD_FAIL: matched banned word 'holding' in humorous_non_tech.
+2026-07-12 15:29:47,478 [INFO] [Loop Result] Iter 1: Score 0/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(FAIL) | Issues: META_DESCRIPTION_LEAK -> Remove all references to 'holding' and visual/staging descriptions; focus only on speech content value.
+2026-07-12 15:29:47,478 [INFO] 
+--- [Agentic Loop: Iteration 2/3] ---
+2026-07-12 15:30:06,496 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:30:06,545 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 15:30:24,892 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:30:24,902 [WARNING] [Agent 2: Warning] Parse error attempt 2: Unterminated string starting at: line 4 column 18 (char 682)
+2026-07-12 15:30:43,899 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:30:43,907 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 15:31:04,403 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:31:19,542 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:31:22,810 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:31:22,817 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 15:31:22,819 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 15:31:22,820 [INFO] [Loop Result] Iter 2: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 15:31:22,821 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 15:31:22,822 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 2 iteration(s). Total Time: 121.53s
+2026-07-12 15:43:05,334 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp1nxj4n40.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmp1nxj4n40.mp3']' timed out after 14.999960799999826 seconds
+2026-07-12 15:48:13,512 [INFO] ============================================================
+2026-07-12 15:48:13,513 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 15:48:13,514 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 15:48:13,515 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 15:48:13,516 [INFO] ============================================================
+2026-07-12 15:48:30,614 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:48:30,762 [INFO] [Agent 1: Perception] Merged document: 367 chars, 0 speech blocks, 3 visual tags.
+2026-07-12 15:48:30,763 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 13 | Words: 0 | Frames: 8
+2026-07-12 15:48:30,763 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 15:48:49,012 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:48:49,061 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 15:49:07,275 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:49:07,287 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 15:49:26,353 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:49:26,366 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 15:49:46,659 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:49:59,416 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:50:00,826 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 15:50:00,832 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 15:50:00,834 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 15:50:00,835 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 15:50:00,835 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 15:50:00,836 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 107.32s
+2026-07-12 18:07:15,294 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:07:15,371 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:07:15,659 [INFO] ============================================================
+2026-07-12 18:07:15,659 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:07:15,659 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:07:15,659 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:07:15,659 [INFO] ============================================================
+2026-07-12 18:07:19,743 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:07:19,788 [INFO] [Agent 1: Perception] Merged document: 666 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 18:07:19,788 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:07:19,789 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:07:32,698 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:07:32,700 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:07:45,588 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:07:45,590 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:08:01,281 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:08:05,492 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:08:07,405 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:08:07,407 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 18:08:07,407 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 18:08:07,407 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 18:08:07,408 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 18:08:07,408 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 51.75s
+2026-07-12 18:19:33,172 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:19:33,175 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:19:33,199 [INFO] ============================================================
+2026-07-12 18:19:33,199 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:19:33,199 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:19:33,199 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:19:33,199 [INFO] ============================================================
+2026-07-12 18:19:38,090 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:19:38,104 [INFO] [Agent 1: Perception] Merged document: 243 chars, 0 speech blocks, 1 visual tags.
+2026-07-12 18:19:38,104 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:19:38,104 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:19:49,493 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:19:54,046 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:19:56,361 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:19:56,363 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 18:19:56,440 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 18:19:56,441 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 18:19:56,441 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 18:19:56,441 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 23.24s
+2026-07-12 18:26:43,754 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:26:43,755 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:26:43,779 [INFO] ============================================================
+2026-07-12 18:26:43,779 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:26:43,779 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:26:43,779 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:26:43,779 [INFO] ============================================================
+2026-07-12 18:26:46,864 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:26:46,865 [INFO] [Agent 1: Perception] Merged document: 759 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 18:26:46,866 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:26:46,866 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:27:03,786 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:27:03,789 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:27:18,063 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:27:18,065 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:27:35,581 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:27:35,583 [WARNING] [Agent 2: Warning] Parse error attempt 3: Unterminated string starting at: line 3 column 14 (char 430)
+2026-07-12 18:27:53,613 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:27:57,852 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:28:01,128 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:28:01,130 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 18:28:01,131 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 18:28:01,131 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 18:28:01,131 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 18:28:01,132 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 77.35s
+2026-07-12 18:33:08,390 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:33:08,391 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:33:08,414 [INFO] ============================================================
+2026-07-12 18:33:08,414 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:33:08,414 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:33:08,415 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:33:08,415 [INFO] ============================================================
+2026-07-12 18:33:11,213 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:33:11,215 [INFO] [Agent 1: Perception] Merged document: 686 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 18:33:11,215 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:33:11,216 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:33:27,193 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:33:27,195 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:33:42,049 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:33:42,051 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:33:58,068 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:33:58,070 [WARNING] [Agent 2: Warning] Parse error attempt 3: Unterminated string starting at: line 2 column 11 (char 12)
+2026-07-12 18:34:13,153 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:34:19,528 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:34:19,531 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Using dynamic evaluation.
+2026-07-12 18:34:24,683 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:34:24,686 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 18:34:24,686 [INFO] [Agent 3: Dual Panel] Score 93/100 | Grounding=28 Schema=10 Density=14 Visual=18 Tone=23 | HardFail=False | Passed=True
+2026-07-12 18:34:24,687 [INFO] [Loop Result] Iter 1: Score 93/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 18:34:24,687 [INFO] [Pipeline v2] Consensus APPROVED! Score 93 >= 90
+2026-07-12 18:34:24,687 [INFO] [Pipeline v2] Complete. Best score: 93/100 across 1 iteration(s). Total Time: 76.27s
+2026-07-12 18:48:55,095 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:48:55,096 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:48:55,115 [INFO] ============================================================
+2026-07-12 18:48:55,115 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:48:55,115 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:48:55,115 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:48:55,116 [INFO] ============================================================
+2026-07-12 18:48:58,608 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:48:58,609 [INFO] [Agent 1: Perception] Merged document: 643 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 18:48:58,610 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:48:58,610 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:49:12,919 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:49:12,921 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:49:31,876 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:49:31,878 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 18:49:45,558 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:49:50,265 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:49:53,185 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:49:53,187 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 18:49:53,187 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 18:49:53,187 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 18:49:53,187 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 18:49:53,187 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 58.07s
+2026-07-12 18:59:44,259 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 18:59:44,260 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 18:59:44,281 [INFO] ============================================================
+2026-07-12 18:59:44,281 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 18:59:44,281 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 18:59:44,281 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 18:59:44,281 [INFO] ============================================================
+2026-07-12 18:59:47,853 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 18:59:47,855 [INFO] [Agent 1: Perception] Merged document: 641 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 18:59:47,856 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 18:59:47,856 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 18:59:58,561 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:00:03,090 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:00:05,390 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:00:05,391 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 19:00:05,392 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:00:05,392 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:00:05,392 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 19:00:05,392 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 21.11s
+2026-07-12 19:08:15,128 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpz_uojw08.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpz_uojw08.mp3']' timed out after 14.999990100000105 seconds
+2026-07-12 19:08:15,205 [INFO] ============================================================
+2026-07-12 19:08:15,206 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:08:15,206 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:08:15,206 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:08:15,206 [INFO] ============================================================
+2026-07-12 19:08:18,253 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:08:18,286 [INFO] [Agent 1: Perception] Merged document: 858 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:08:18,286 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:08:18,286 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 19:08:33,145 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:08:33,147 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 4 column 18 (char 1039)
+2026-07-12 19:08:47,119 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:08:47,121 [WARNING] [Agent 2: Warning] Parse error attempt 2: Unterminated string starting at: line 2 column 11 (char 12)
+2026-07-12 19:09:01,749 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:09:01,753 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:09:22,292 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:09:22,295 [INFO] [Lexical Pre-Filter] HARD_FAIL: matched banned word 'sitting' in sarcastic.
+2026-07-12 19:09:22,295 [INFO] [Loop Result] Iter 1: Score 0/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(FAIL) | Issues: META_DESCRIPTION_LEAK -> Remove all references to 'sitting' and visual/staging descriptions; focus only on speech content value.
+2026-07-12 19:09:22,295 [INFO] 
+--- [Agentic Loop: Iteration 2/3] ---
+2026-07-12 19:09:46,563 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:09:53,148 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:09:53,150 [WARNING] [Judge B: Qwen 3.7 Plus] Evaluation failed: Expecting value: line 1 column 1 (char 0). Using dynamic evaluation.
+2026-07-12 19:09:58,845 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:09:58,847 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Expecting value: line 2 column 21 (char 22). Using dynamic evaluation.
+2026-07-12 19:09:58,848 [INFO] [Agent 3: Dual Panel] Score 93/100 | Grounding=28 Schema=10 Density=14 Visual=18 Tone=23 | HardFail=False | Passed=True
+2026-07-12 19:09:58,848 [INFO] [Loop Result] Iter 2: Score 93/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:09:58,848 [INFO] [Pipeline v2] Consensus APPROVED! Score 93 >= 90
+2026-07-12 19:09:58,849 [INFO] [Pipeline v2] Complete. Best score: 93/100 across 2 iteration(s). Total Time: 103.64s
+2026-07-12 19:13:37,130 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpa7u0fppi.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpa7u0fppi.mp3']' timed out after 14.999986499999977 seconds
+2026-07-12 19:13:37,496 [INFO] ============================================================
+2026-07-12 19:13:37,496 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:13:37,496 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:13:37,497 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:13:37,497 [INFO] ============================================================
+2026-07-12 19:13:53,962 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:13:54,025 [INFO] [Agent 1: Perception] Merged document: 586 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:13:54,025 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:13:54,026 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 19:14:11,079 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:14:11,082 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 5 column 22 (char 1244)
+2026-07-12 19:14:29,069 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:14:29,071 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:14:43,250 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:14:43,254 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:14:55,017 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:14:59,281 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:15:01,672 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:15:01,675 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 19:15:01,675 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:15:01,675 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:15:01,675 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 19:15:01,676 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 84.18s
+2026-07-12 19:24:00,778 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 19:24:00,779 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 19:24:00,796 [INFO] ============================================================
+2026-07-12 19:24:00,796 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:24:00,796 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:24:00,796 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:24:00,797 [INFO] ============================================================
+2026-07-12 19:24:04,116 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:24:04,117 [INFO] [Agent 1: Perception] Merged document: 998 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:24:04,118 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:24:04,118 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 19:24:20,048 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:24:20,050 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 5 column 22 (char 1468)
+2026-07-12 19:24:34,871 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:24:34,875 [WARNING] [Agent 2: Warning] Parse error attempt 2: Unterminated string starting at: line 3 column 14 (char 313)
+2026-07-12 19:24:48,373 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:24:48,375 [WARNING] [Agent 2: Warning] Parse error attempt 3: Unterminated string starting at: line 5 column 22 (char 580)
+2026-07-12 19:24:54,955 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:25:04,410 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:25:04,412 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Unterminated string starting at: line 11 column 24 (char 373). Using dynamic evaluation.
+2026-07-12 19:25:10,414 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:25:10,416 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:25:10,416 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:25:10,416 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 19:25:10,416 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 69.62s
+2026-07-12 19:26:46,145 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 19:26:46,146 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 19:26:46,168 [INFO] ============================================================
+2026-07-12 19:26:46,168 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:26:46,168 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:26:46,169 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:26:46,169 [INFO] ============================================================
+2026-07-12 19:26:49,633 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:26:49,656 [INFO] [Agent 1: Perception] Merged document: 669 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:26:49,656 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:26:49,656 [INFO] 
+--- [Agentic Loop: Iteration 1/3] ---
+2026-07-12 19:27:03,298 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:27:03,301 [WARNING] [Agent 2: Warning] Parse error attempt 1: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:27:17,374 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:27:17,378 [WARNING] [Agent 2: Warning] Parse error attempt 2: Unterminated string starting at: line 5 column 22 (char 805)
+2026-07-12 19:27:31,580 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:27:31,582 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:29:05,528 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:29:11,436 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:29:14,273 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:29:14,276 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Expecting property name enclosed in double quotes: line 9 column 46 (char 184). Using dynamic evaluation.
+2026-07-12 19:29:14,276 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:29:14,276 [INFO] [Loop Result] Iter 1: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:29:14,277 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 90
+2026-07-12 19:29:14,277 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 1 iteration(s). Total Time: 148.11s
+2026-07-12 19:45:15,914 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 19:45:15,997 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 19:45:16,241 [INFO] ============================================================
+2026-07-12 19:45:16,241 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:45:16,241 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:45:16,241 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:45:16,241 [INFO] ============================================================
+2026-07-12 19:45:19,116 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:45:19,167 [INFO] [Agent 1: Perception] Merged document: 525 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:45:19,167 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:45:19,167 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-12 19:45:46,246 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:45:46,248 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 2 column 11 (char 12)
+2026-07-12 19:46:12,380 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:46:12,383 [WARNING] [Agent 2: Warning] Parse error attempt 2: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:46:37,549 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:46:37,551 [WARNING] [Agent 2: Warning] Parse error attempt 3: Expecting value: line 1 column 1 (char 0)
+2026-07-12 19:46:57,304 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:47:02,242 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:47:02,918 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:47:02,919 [INFO] [Agent 3: Dual Panel] Score 98/100 | Grounding=30 Schema=10 Density=13 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:47:02,920 [INFO] [Loop Result] Iter 1: Score 98/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:47:02,920 [INFO] [Pipeline v2] Consensus APPROVED! Score 98 >= 85
+2026-07-12 19:47:02,920 [INFO] [Pipeline v2] Complete. Best score: 98/100 across 1 iteration(s).
+2026-07-12 19:52:00,406 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 19:52:00,409 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 19:52:00,434 [INFO] ============================================================
+2026-07-12 19:52:00,435 [INFO] [Pipeline v2] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 19:52:00,435 [INFO] [Pipeline v2] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 19:52:00,435 [INFO] [Pipeline v2] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 19:52:00,435 [INFO] ============================================================
+2026-07-12 19:52:03,996 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:52:04,018 [INFO] [Agent 1: Perception] Merged document: 593 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 19:52:04,019 [INFO] [Agent 1: Perception] Telemetry -> Type: visual_heavy | Scenes: 0 | Words: 0 | Frames: 4
+2026-07-12 19:52:04,019 [INFO] 
+--- [Agentic Loop: Iteration 1/2] ---
+2026-07-12 19:53:41,265 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:53:46,268 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:53:52,469 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:53:52,471 [INFO] [Agent 3: Dual Panel] Score 40/100 | Grounding=30 Schema=10 Density=0 Visual=0 Tone=0 | HardFail=True | Passed=False
+2026-07-12 19:53:52,472 [INFO] [Loop Result] Iter 1: Score 40/100 [HARD_FAIL] | TextJudge(PASS) VisionJudge(FAIL) | Issues: empty_content, value_density -> [formal] Replace the placeholder with a concise, informative caption that explains the diagram's depiction of moving fro
+2026-07-12 19:53:52,472 [INFO] 
+--- [Agentic Loop: Iteration 2/2] ---
+2026-07-12 19:54:10,046 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:54:10,049 [WARNING] [Agent 2: Warning] Parse error attempt 1: Unterminated string starting at: line 4 column 18 (char 815)
+2026-07-12 19:54:29,002 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:54:33,248 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:54:35,176 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 19:54:35,178 [WARNING] [Judge A: gpt-oss-120b] Evaluation failed: Empty or None content returned from model. Using dynamic evaluation.
+2026-07-12 19:54:35,179 [INFO] [Agent 3: Dual Panel] Score 97/100 | Grounding=28 Schema=10 Density=14 Visual=20 Tone=25 | HardFail=False | Passed=True
+2026-07-12 19:54:35,179 [INFO] [Loop Result] Iter 2: Score 97/100 [APPROVED] | TextJudge(PASS) VisionJudge(PASS) -> Approved by dual judge panel.
+2026-07-12 19:54:35,179 [INFO] [Pipeline v2] Consensus APPROVED! Score 97 >= 85
+2026-07-12 19:54:35,179 [INFO] [Pipeline v2] Complete. Best score: 97/100 across 2 iteration(s).
+2026-07-12 20:13:37,141 [WARNING] [Warning] Audio extraction failed or ffmpeg not found: Command '['ffmpeg', '-y', '-i', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpsz2ma283.mp4', '-q:a', '0', '-map', 'a', 'C:\\Users\\kgfg0\\AppData\\Local\\Temp\\tmpsz2ma283.mp3']' timed out after 14.99998819999928 seconds
+2026-07-12 20:13:37,360 [INFO] ============================================================
+2026-07-12 20:13:37,361 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:13:37,361 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:13:37,361 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:13:37,361 [INFO] ============================================================
+2026-07-12 20:13:55,481 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:13:55,556 [INFO] [Agent 1: Perception] Merged document: 618 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:13:55,557 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:14:10,635 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:14:15,945 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:14:15,947 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 1 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:14:17,158 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:14:19,871 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:14:19,872 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 2 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:14:19,917 [ERROR] [Background Job 90c186bc-646d-4395-9d31-8f139a6b693e Error] 500: Failed to process video: Vision Judge evaluation failed dynamically after retries: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:17:05,985 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:17:05,986 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:17:06,051 [INFO] ============================================================
+2026-07-12 20:17:06,051 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:17:06,051 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:17:06,052 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:17:06,052 [INFO] ============================================================
+2026-07-12 20:17:09,245 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:09,246 [INFO] [Agent 1: Perception] Merged document: 800 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:17:09,247 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:17:18,162 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:23,186 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:23,188 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 1 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:17:26,191 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:26,193 [WARNING] [Judge A: gpt-oss-120b] Attempt 1 failed: expected string or bytes-like object, got 'NoneType'
+2026-07-12 20:17:28,049 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:28,051 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 2 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:17:28,054 [ERROR] [Background Job a735a7e0-94ec-435f-8d24-31fdbac94dcf Error] 500: Failed to process video: Vision Judge evaluation failed dynamically after retries: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:17:32,446 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:17:32,448 [WARNING] [Judge A: gpt-oss-120b] Attempt 2 failed: expected string or bytes-like object, got 'NoneType'
+2026-07-12 20:23:25,445 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:23:25,447 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:23:25,508 [INFO] ============================================================
+2026-07-12 20:23:25,508 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:23:25,508 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v4-pro | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:23:25,509 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:23:25,509 [INFO] ============================================================
+2026-07-12 20:23:28,386 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:28,389 [INFO] [Agent 1: Perception] Merged document: 784 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:23:28,389 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:23:36,082 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:40,916 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:40,918 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 1 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:23:42,815 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:42,817 [WARNING] [Judge A: gpt-oss-120b] Attempt 1 failed: Unterminated string starting at: line 8 column 1 (char 99)
+2026-07-12 20:23:45,469 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:45,470 [WARNING] [Judge B: Qwen 3.7 Plus] Attempt 2 failed: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:23:45,472 [ERROR] [Background Job dfd3d253-d155-450b-a005-8face27f320d Error] 500: Failed to process video: Vision Judge evaluation failed dynamically after retries: Missing required numeric score fields in vision judge JSON output: {}
+2026-07-12 20:23:48,775 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:23:48,778 [WARNING] [Judge A: gpt-oss-120b] Attempt 2 failed: expected string or bytes-like object, got 'NoneType'
+2026-07-12 20:26:08,803 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:26:08,804 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:26:08,867 [INFO] ============================================================
+2026-07-12 20:26:08,867 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:26:08,867 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v3 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:26:08,867 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:26:08,867 [INFO] ============================================================
+2026-07-12 20:26:11,942 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:26:11,960 [INFO] [Agent 1: Perception] Merged document: 563 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:26:11,960 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:26:13,226 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:26:13,227 [ERROR] [Agent 2: Creator] Generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-5f8dcde2153f413788f81bd2b15f67b3'}
+2026-07-12 20:26:13,230 [ERROR] [Background Job fdbff88d-482e-442a-8f4b-1fdae41019bc Error] 500: Failed to process video: Caption generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-5f8dcde2153f413788f81bd2b15f67b3'}
+2026-07-12 20:34:11,802 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:34:11,826 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:34:11,892 [INFO] ============================================================
+2026-07-12 20:34:11,892 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:34:11,892 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v3 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:34:11,892 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:34:11,892 [INFO] ============================================================
+2026-07-12 20:34:15,519 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:34:15,535 [INFO] [Agent 1: Perception] Merged document: 666 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:34:15,536 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:34:16,850 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:34:16,851 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/deepseek-v3' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:34:18,288 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:34:18,289 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/deepseek-v3' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:34:19,800 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:34:19,801 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/llama-v3p3-70b-instruct' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:34:19,801 [ERROR] [Agent 2: Creator] Generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-1d36795993b34932a0703f8dbb5e8ad5'}
+2026-07-12 20:34:19,803 [ERROR] [Background Job 668cde36-0c5e-4e7d-b8b4-c20193d575f0 Error] 500: Failed to process video: Caption generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-1d36795993b34932a0703f8dbb5e8ad5'}
+2026-07-12 20:38:47,519 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:38:47,521 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:38:47,590 [INFO] ============================================================
+2026-07-12 20:38:47,590 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:38:47,591 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/deepseek-v3 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:38:47,591 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:38:47,591 [INFO] ============================================================
+2026-07-12 20:38:50,734 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:38:50,737 [INFO] [Agent 1: Perception] Merged document: 688 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:38:50,737 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:38:52,160 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:38:52,161 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/deepseek-v3' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:38:53,474 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:38:53,475 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/deepseek-v3' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:38:54,711 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 404 Not Found"
+2026-07-12 20:38:54,712 [WARNING] [Model Fallback] Model 'accounts/fireworks/models/llama-v3p3-70b-instruct' returned 404/NOT_FOUND. Falling back to next model...
+2026-07-12 20:38:54,712 [ERROR] [Agent 2: Creator] Generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-62f336147bed421a80d2f959aa59a230'}
+2026-07-12 20:38:54,714 [ERROR] [Background Job 8f1effd2-bab1-4234-97de-be3aefd08eac Error] 500: Failed to process video: Caption generation failed: Error code: 404 - {'error': {'message': 'Model not found, inaccessible, and/or not deployed', 'param': 'model', 'code': 'NOT_FOUND', 'type': 'error'}, 'request_id': 'chatcmpl-62f336147bed421a80d2f959aa59a230'}
+2026-07-12 20:47:22,050 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:47:22,052 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:47:22,123 [INFO] ============================================================
+2026-07-12 20:47:22,123 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:47:22,123 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/minimax-m2p7 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:47:22,124 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:47:22,124 [INFO] ============================================================
+2026-07-12 20:47:25,061 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:25,086 [INFO] [Agent 1: Perception] Merged document: 672 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:47:25,087 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:47:30,218 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:37,888 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:40,096 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:40,098 [INFO] [Agent 3: Dual Panel] Score 78/100 | Grounding=22 Schema=10 Density=11 Visual=20 Tone=15 | HardFail=True | Passed=False
+2026-07-12 20:47:40,098 [INFO] [Loop Result] Iter 1: Score 78/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(FAIL) | Issues: tone_overlap, grounding -> [humorous_tech] Replace invented terms like "FAIL" and the explanation about async callbacks with descriptions that matc
+2026-07-12 20:47:40,098 [INFO] 
+--- [ValueStream AI Loop: Iteration 2/3] ---
+2026-07-12 20:47:47,539 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:53,766 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:57,271 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:47:57,273 [INFO] [Agent 3: Dual Panel] Score 91/100 | Grounding=28 Schema=10 Density=8 Visual=20 Tone=25 | HardFail=True | Passed=False
+2026-07-12 20:47:57,274 [INFO] [Loop Result] Iter 2: Score 91/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(PASS) | Issues: grounding -> [humorous_tech] Replace the CSS reference with a description grounded in the visual, e.g., note that the glow rings expa
+2026-07-12 20:47:57,274 [INFO] 
+--- [ValueStream AI Loop: Iteration 3/3] ---
+2026-07-12 20:48:02,028 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:48:07,534 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:48:12,020 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:48:12,022 [INFO] [Agent 3: Dual Panel] Score 74/100 | Grounding=10 Schema=10 Density=9 Visual=20 Tone=25 | HardFail=True | Passed=False
+2026-07-12 20:48:12,022 [INFO] [Loop Result] Iter 3: Score 74/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(PASS) | Issues: grounding -> [formal] Replace the unverified terms with descriptions directly observable in the visual, e.g., "non\u2011operational" and "
+2026-07-12 20:48:12,053 [WARNING] [ValueStream AI] Applying deterministic fallback on last draft.
+2026-07-12 20:59:39,580 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/audio/transcriptions "HTTP/1.1 401 Unauthorized"
+2026-07-12 20:59:39,581 [WARNING] [Audio Transcription] Whisper unavailable or failed: Error code: 401 - {'error': {'object': 'error', 'type': 'unauthorized', 'message': 'Unauthorized'}}
+2026-07-12 20:59:39,636 [INFO] ============================================================
+2026-07-12 20:59:39,636 [INFO] [ValueStream AI] Starting 3-Agent Dual-Model Ensemble
+2026-07-12 20:59:39,636 [INFO] [ValueStream AI] Models: Creator=accounts/fireworks/models/minimax-m2p7 | Perception=accounts/fireworks/models/minimax-m3
+2026-07-12 20:59:39,636 [INFO] [ValueStream AI] Judges: TextJudge=accounts/fireworks/models/gpt-oss-120b | VisionJudge=accounts/fireworks/models/qwen3p7-plus
+2026-07-12 20:59:39,636 [INFO] ============================================================
+2026-07-12 20:59:42,636 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:59:42,638 [INFO] [Agent 1: Perception] Merged document: 786 chars, 0 speech blocks, 4 visual tags.
+2026-07-12 20:59:42,638 [INFO] 
+--- [ValueStream AI Loop: Iteration 1/3] ---
+2026-07-12 20:59:46,307 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:59:50,437 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:59:54,208 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 20:59:54,210 [INFO] [Agent 3: Dual Panel] Score 83/100 | Grounding=18 Schema=10 Density=10 Visual=20 Tone=25 | HardFail=True | Passed=False
+2026-07-12 20:59:54,210 [INFO] [Loop Result] Iter 1: Score 83/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(PASS) | Issues: ungrounded_analogy, invented_term -> [humorous_tech] Replace "DEADLOCKED" with the visual label "STATIC" and ensure all terminology matches the visual elemen
+2026-07-12 20:59:54,210 [INFO] 
+--- [ValueStream AI Loop: Iteration 2/3] ---
+2026-07-12 20:59:58,587 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:02,822 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:11,672 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:11,673 [INFO] [Agent 3: Dual Panel] Score 68/100 | Grounding=8 Schema=10 Density=5 Visual=20 Tone=25 | HardFail=True | Passed=False
+2026-07-12 21:00:11,674 [INFO] [Loop Result] Iter 2: Score 68/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(PASS) | Issues: grounding -> [formal] Remove the inference about enhanced protection; only state observable visual changes.; [sarcastic] Eliminate th
+2026-07-12 21:00:11,674 [INFO] 
+--- [ValueStream AI Loop: Iteration 3/3] ---
+2026-07-12 21:00:17,403 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:22,500 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:26,032 [INFO] HTTP Request: POST https://api.fireworks.ai/inference/v1/chat/completions "HTTP/1.1 200 OK"
+2026-07-12 21:00:26,034 [INFO] [Agent 3: Dual Panel] Score 93/100 | Grounding=30 Schema=10 Density=8 Visual=20 Tone=25 | HardFail=True | Passed=False
+2026-07-12 21:00:26,034 [INFO] [Loop Result] Iter 3: Score 93/100 [HARD_FAIL] | TextJudge(FAIL) VisionJudge(PASS) | Issues: appearance_description -> [formal] Replace visual description with an insight or takeaway about the meaning of the static vs. active states.; [sar
+2026-07-12 21:00:26,034 [WARNING] [ValueStream AI] Applying deterministic fallback on last draft.

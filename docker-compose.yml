@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  valuestream-ai:
+    build: .
+    container_name: valuestream-ai-pipeline
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - PORT=8000
+    restart: unless-stopped
