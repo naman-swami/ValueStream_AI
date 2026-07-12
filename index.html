@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ValueStream AI | Enterprise Multi-Agent Video Captioning Pipeline</title>
+    <!-- Suppress Tailwind CDN console warning for hackathon dev prototyping -->
+    <script>
+        const originalWarn = console.warn;
+        console.warn = (...args) => {
+            if (args[0] && typeof args[0] === 'string' && args[0].includes('cdn.tailwindcss.com')) return;
+            originalWarn(...args);
+        };
+    </script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4ff',
+                            100: '#e0eaff',
+                            500: '#4f46e5',
+                            600: '#4338ca',
+                            700: '#3730a3'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99,102,241,0.08), transparent),
+                radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 100% 100%, 22px 22px;
+            color: #0f172a;
+            min-height: 100vh;
+        }
+        .card-studio {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-studio:hover {
+            box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.08), 0 2px 6px -2px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Import box shining glow animation on hover */
+        .upload-shine {
+            position: relative;
+            transition: all 0.35s ease;
+        }
+        .upload-shine:hover {
+            border-color: #06b6d4 !important;
+            box-shadow: 0 0 32px rgba(6, 182, 212, 0.4), 0 0 14px rgba(79, 70, 229, 0.25), inset 0 0 20px rgba(6, 182, 212, 0.05);
+            transform: translateY(-3px);
+        }
+
+        /* Rotating shining light border for processing container */
+        @keyframes rotate-light {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .processing-border-glow {
+            position: relative;
+            overflow: hidden;
+            border-radius: 1rem;
+            padding: 3px;
+            background: #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.15);
+        }
+        .processing-border-glow::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: conic-gradient(
+                transparent 0deg,
+                transparent 120deg,
+                #06b6d4 180deg,
+                #4f46e5 240deg,
+                #38bdf8 300deg,
+                transparent 360deg
+            );
+            animation: rotate-light 2.2s linear infinite;
+        }
+        .processing-inner {
+            position: relative;
+            background: #ffffff;
+            border-radius: calc(1rem - 3px);
+            z-index: 1;
+        }
+
+        /* Agent status highlight animations */
+        @keyframes pulse-border {
+            0%, 100% { border-color: #e2e8f0; }
+            50% { border-color: #4f46e5; }
+        }
+        .agent-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .agent-working {
+            border-color: #6366f1 !important;
+            box-shadow: 0 0 18px rgba(99, 102, 241, 0.25);
+            animation: pulse-border 1.8s ease-in-out infinite;
+        }
+        .agent-completed {
+            border-color: #10b981 !important;
+            background-color: #f0fdf4 !important;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+        }
+        .agent-looping {
+            border-color: #a855f7 !important;
+            background-color: #faf5ff !important;
+            box-shadow: 0 0 18px rgba(168, 85, 247, 0.25);
+        }
+
+        /* Gate card entrance animation */
+        @keyframes gate-entrance {
+            0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        #apiKeyGateContainer {
+            animation: gate-entrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Studio reveal animation */
+        @keyframes studio-reveal {
+            0% { opacity: 0; transform: translateY(12px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        #studioWorkspaceContainer:not(.hidden) {
+            animation: studio-reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        /* Side panel slide-in animation */
+        .side-panel {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Smooth gradient text utility */
+        .gradient-text {
+            background: linear-gradient(135deg, #4f46e5, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased pb-24">
+
+    <!-- Top Executive Header -->
+    <header class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3.5">
+                <div class="w-9 h-9 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-md shadow-indigo-600/20">
+                    <i class="fa-solid fa-layer-group text-sm"></i>
+                </div>
+                <div>
+                    <h1 class="text-base font-bold text-slate-900 tracking-tight flex items-center gap-2">
+                        <span>ValueStream AI</span>
+                        <span class="text-[10px] font-semibold uppercase tracking-wider bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded border border-indigo-200">
+                            Enterprise Pipeline
+                        </span>
+                    </h1>
+                    <p class="text-xs text-slate-500 font-normal">
+                        Created by <span class="font-semibold text-slate-800">Naman Swami</span> • Coded by <span class="font-semibold text-indigo-600">Antigravity</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Prominent Powered By Badge -->
+            <div class="hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-xs font-medium">
+                <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-indigo-600"></span>
+                </span>
+                <span>⚡ Google DeepMind Gemma 4 31B & MiniMax-M3</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+
+        <!-- Executive Hero Section -->
+        <div class="mb-8 text-center sm:text-left flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">
+                    <span class="gradient-text">ValueStream AI</span>
+                </h2>
+                <p class="mt-1.5 text-sm text-slate-600 max-w-2xl">
+                    Enterprise Multi-Agent Video Captioning Pipeline • Real-time Dual-Model Consensus Architecture
+                </p>
+            </div>
+            <div id="openSidePanelBtnContainer" class="hidden">
+                <button onclick="openSidePanel()" class="px-4 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-md flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-square-poll-horizontal"></i>
+                    <span>View Results Panel</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 1: Fireworks AI API Key Gated Onboarding Screen -->
+        <div id="apiKeyGateContainer" class="card-studio rounded-2xl p-8 sm:p-12 border border-slate-200 shadow-lg text-center max-w-2xl mx-auto my-8">
+            <div class="w-16 h-16 rounded-2xl bg-indigo-50 border border-indigo-100 mx-auto flex items-center justify-center text-indigo-600 mb-6 shadow-sm">
+                <i class="fa-solid fa-key text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 mb-1">Welcome to <span class="gradient-text">ValueStream AI</span></h3>
+            <p class="text-xs text-slate-500 mb-4">Enterprise Multi-Agent Video Captioning Pipeline</p>
+            <p class="text-sm text-slate-600 max-w-md mx-auto mb-6">
+                Enter your Fireworks AI API Key to authorize the 3-Agent Dual-Model Ensemble and begin captioning.
+            </p>
+
+            <div class="max-w-md mx-auto mb-6">
+                <div class="relative">
+                    <input type="password" id="apiKeyInput" placeholder="Enter Fireworks AI Key (fw_...)" 
+                        class="w-full text-sm font-mono bg-slate-50 border border-slate-300 rounded-xl pl-4 pr-10 py-3 text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:bg-white transition-all shadow-inner" />
+                    <button type="button" onclick="toggleApiKeyVisibility()" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600">
+                        <i id="apiKeyEyeIcon" class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center">
+                <button type="button" onclick="confirmAndUnlockStudio()" class="w-full sm:w-auto px-10 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                    <span>Authorize & Enter Studio</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- STEP 2: Main Studio Workspace Container (Locked until step 1 completed) -->
+        <div id="studioWorkspaceContainer" class="hidden">
+            <!-- Active API Key Status Bar -->
+            <div class="mb-4 card-studio rounded-xl px-5 py-3 border border-slate-200/90 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-slate-50/80">
+                <div class="flex items-center gap-2.5 text-xs text-slate-700">
+                    <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                    <span class="font-medium">Active API Key:</span>
+                    <span id="activeKeyDisplay" class="font-mono font-semibold text-slate-900">Server Environment Default</span>
+                </div>
+                <button type="button" onclick="showApiKeyGate()" class="text-xs text-indigo-600 hover:text-indigo-800 font-semibold underline flex items-center gap-1.5 self-start sm:self-auto">
+                    <i class="fa-solid fa-key"></i>
+                    <span>Change API Key</span>
+                </button>
+            </div>
+
+            <!-- Interactive Upload Studio Card with Neon/Cyan Shine on Hover -->
+            <div id="dropZone" class="card-studio upload-shine rounded-2xl p-10 border-2 border-dashed border-slate-300 cursor-pointer text-center relative group overflow-hidden">
+            <input type="file" id="videoInput" accept="video/mp4,video/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" />
+            
+            <div class="w-16 h-16 rounded-full bg-slate-100 border border-slate-200 mx-auto flex items-center justify-center mb-4 group-hover:bg-cyan-50 group-hover:border-cyan-300 group-hover:scale-110 transition-all duration-300">
+                <i class="fa-solid fa-cloud-arrow-up text-2xl text-indigo-600 group-hover:text-cyan-600 transition-colors"></i>
+            </div>
+            
+            <h3 class="text-lg font-bold text-slate-900 mb-1">Upload MP4 Video File</h3>
+            <p class="text-xs text-slate-500 mb-4">Drag & drop your video file here, or click to browse</p>
+            
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200/80 text-xs text-slate-700 font-medium">
+                <i class="fa-solid fa-wand-magic-sparkles text-indigo-600"></i>
+                <span>ValueStream AI — by Naman Swami</span>
+            </div>
+        </div>
+
+        <!-- Selected Video Confirmation Bar -->
+        <div id="selectedBanner" class="hidden mt-4 card-studio rounded-xl p-4 flex items-center justify-between border-l-4 border-l-indigo-600">
+            <div class="flex items-center space-x-3">
+                <div class="w-11 h-11 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-600">
+                    <i class="fa-solid fa-file-video text-lg"></i>
+                </div>
+                <div>
+                    <p id="selectedFilename" class="text-sm font-bold text-slate-900"></p>
+                    <p id="selectedFilesize" class="text-xs text-slate-500"></p>
+                </div>
+            </div>
+            <button id="analyzeBtn" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-700 hover:to-cyan-700 text-white font-semibold text-xs shadow-md hover:shadow-lg transition-all flex items-center gap-2">
+                <span>Run Ensemble Analysis</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+
+        <!-- Processing Box with Rotating Shining Light Border -->
+        <div id="loadingContainer" class="hidden mt-6 processing-border-glow">
+            <div class="processing-inner p-8 sm:p-10 text-center">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-700 text-xs font-semibold mb-4">
+                    <i class="fa-solid fa-circle-notch animate-spin text-indigo-600"></i>
+                    <span>Multi-Agent Autonomous Loop Active</span>
+                </div>
+
+                <h3 class="text-lg font-bold text-slate-900 mb-1">Collaborative 3-Agent Perception & Tone Consensus</h3>
+                <p id="agentStatusText" class="text-xs text-slate-600 font-medium max-w-lg mx-auto mb-8">
+                    Initializing Agent 1 (Speech & Keyframe Perception)...
+                </p>
+
+                <!-- Interactive Live Agent Loop Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
+                    <!-- Agent 1 Card -->
+                    <div id="agentCard1" class="agent-card card-studio rounded-xl p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                                Agent 1: Dual-Stream Extractor
+                            </span>
+                            <span id="agentStatusBadge1" class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                                STANDBY
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            Extracts Whisper speech transcription & MiniMax-M3 visual keyframe telemetry.
+                        </p>
+                    </div>
+
+                    <!-- Agent 2 Card -->
+                    <div id="agentCard2" class="agent-card card-studio rounded-xl p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-purple-600"></span>
+                                Agent 2: Gemma Creator
+                            </span>
+                            <span id="agentStatusBadge2" class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                                STANDBY
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            Crafts 4-tone captions & iterates continuously with Agent 3 judge critique.
+                        </p>
+                    </div>
+
+                    <!-- Agent 3 Card -->
+                    <div id="agentCard3" class="agent-card card-studio rounded-xl p-4 border border-slate-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-cyan-600"></span>
+                                Agent 3: Parallel Dual-Judge
+                            </span>
+                            <span id="agentStatusBadge3" class="text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                                STANDBY
+                            </span>
+                        </div>
+                        <p class="text-xs text-slate-500">
+                            Evaluates factual grounding & tone separation in an active feedback loop.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Loop Note Banner -->
+                <div class="mt-6 p-3 rounded-lg bg-slate-50 border border-slate-200/80 text-left text-xs text-slate-600 flex items-center justify-between">
+                    <span>
+                        <i class="fa-solid fa-repeat text-indigo-600 mr-1.5"></i>
+                        <strong>Autonomous Ensemble Architecture:</strong> Agent 2 & Agent 3 collaborate in a dynamic judging/correction loop targeting consensus score ≥ 90 (up to 3 iterations).
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Workspace Preview Area (Video & Summary) -->
+        <div id="resultsMainContainer" class="hidden mt-8 space-y-6">
+
+            <!-- Video Playback & Consensus Metrics Card -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+                <!-- Video Player -->
+                <div class="lg:col-span-7 card-studio rounded-xl overflow-hidden flex flex-col">
+                    <div class="bg-slate-100 px-4 py-3 border-b border-slate-200 flex items-center justify-between">
+                        <span class="text-xs font-bold text-slate-800 flex items-center gap-2">
+                            <i class="fa-solid fa-play text-indigo-600"></i> Uploaded Video Playback
+                        </span>
+                        <button onclick="openSidePanel()" class="text-xs font-semibold text-indigo-600 hover:text-indigo-800 flex items-center gap-1">
+                            <span>Open Results Side Panel</span>
+                            <i class="fa-solid fa-arrow-right-long"></i>
+                        </button>
+                    </div>
+                    <video id="videoPlayer" controls class="w-full max-h-[380px] bg-slate-900 my-auto"></video>
+                </div>
+
+                <!-- Consensus Metrics Studio Card -->
+                <div class="lg:col-span-5 card-studio rounded-xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-xs font-bold uppercase tracking-wider text-slate-500">
+                                Ensemble Verdict
+                            </span>
+                            <span id="consensusBadge" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                                <i class="fa-solid fa-clock mr-1"></i> AWAITING VIDEO
+                            </span>
+                        </div>
+
+                        <div class="flex items-baseline space-x-2 mb-2">
+                            <span id="finalScoreVal" class="text-5xl font-extrabold text-slate-900">--</span>
+                            <span class="text-slate-400 text-lg font-semibold">/ 100</span>
+                        </div>
+                        <p id="consensusSummaryDesc" class="text-xs text-slate-600 leading-relaxed mb-6">
+                            Verified by 3-Agent autonomous consensus. Real-time scores and factual/tone evaluation will populate upon processing.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 border-t border-slate-100 pt-4 text-xs">
+                        <div>
+                            <span class="text-slate-400 block font-medium">Iterations Executed</span>
+                            <span id="iterationCountVal" class="font-bold text-slate-900 text-sm">--</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block font-medium">Execution Time</span>
+                            <span id="executionTimeVal" class="font-bold text-emerald-600 text-sm">--</span>
+                        </div>
+                        <div>
+                            <span class="text-slate-400 block font-medium">Perception Type</span>
+                            <span id="videoTypeVal" class="font-bold text-indigo-600 text-sm capitalize">--</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- Behind the Scenes Executive Telemetry Accordion -->
+            <div class="card-studio rounded-xl overflow-hidden">
+                <button onclick="toggleAccordion()" class="w-full px-6 py-4 bg-slate-50 hover:bg-slate-100/80 flex items-center justify-between text-left transition-colors border-b border-slate-200">
+                    <div class="flex items-center space-x-2.5">
+                        <i class="fa-solid fa-list-check text-indigo-600"></i>
+                        <span class="font-bold text-xs text-slate-800">Behind the Scenes — Live Executive Telemetry & Loop Critique History</span>
+                    </div>
+                    <i id="accordionIcon" class="fa-solid fa-chevron-down text-slate-400 text-xs transition-transform"></i>
+                </button>
+
+                <div id="accordionContent" class="hidden p-6 space-y-6 bg-white">
+                    <!-- Structured JudgeCritique Card -->
+                    <div id="structuredCritiqueCard" class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-xs font-bold text-slate-900 uppercase tracking-wider flex items-center gap-1.5">
+                                <i class="fa-solid fa-scale-balanced text-indigo-600"></i>
+                                Structured JudgeCritique Telemetry
+                            </span>
+                            <span id="critiqueStatusBadge" class="px-2.5 py-0.5 rounded text-[10px] font-bold bg-slate-200 text-slate-700">
+                                PENDING
+                            </span>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3 text-xs">
+                            <div class="p-2.5 rounded bg-white border border-slate-200">
+                                <span class="text-slate-400 block font-semibold uppercase text-[10px]">Failure Category</span>
+                                <span id="critiqueFailureCategory" class="font-bold text-slate-800 font-mono mt-0.5 block">NONE</span>
+                            </div>
+                            <div class="p-2.5 rounded bg-white border border-slate-200 sm:col-span-2">
+                                <span class="text-slate-400 block font-semibold uppercase text-[10px]">Fix Directive</span>
+                                <span id="critiqueFixDirective" class="text-slate-700 mt-0.5 block font-medium">--</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Judges Consensus Status Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold text-slate-800">Text Judge (gpt-oss-120b)</span>
+                                <span id="judgeABadge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600">
+                                    PENDING
+                                </span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 mb-1">Factual Grounding (30) + Schema (10) + Value Density (15) = 55 pts</p>
+                            <p id="judgeADesc" class="text-xs text-slate-500">Awaiting factual grounding & schema compliance evaluation.</p>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-slate-50 border border-slate-200">
+                            <div class="flex items-center justify-between mb-1.5">
+                                <span class="text-xs font-bold text-slate-800">Vision Judge (Qwen 3.7 Plus)</span>
+                                <span id="judgeBBadge" class="px-2 py-0.5 rounded text-[10px] font-bold bg-slate-100 text-slate-600">
+                                    PENDING
+                                </span>
+                            </div>
+                            <p class="text-[10px] text-slate-400 mb-1">Visual Accuracy (20) + Tone Separation (25) = 45 pts</p>
+                            <p id="judgeBDesc" class="text-xs text-slate-500">Awaiting multimodal visual verification & tone separation evaluation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Agent 1 Merged Document -->
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Agent 1 — Interleaved Perception Document</h4>
+                        <div id="telemetryVisualDesc" class="p-3.5 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 font-mono max-h-40 overflow-y-auto leading-relaxed whitespace-pre-wrap"></div>
+                    </div>
+
+                    <!-- Loop Deliberation History -->
+                    <div>
+                        <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-2">Consensus Deliberation History</h4>
+                        <div id="critiqueHistoryList" class="space-y-2"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </div> <!-- End of studioWorkspaceContainer -->
+
+    </main>
+
+    <!-- Slide-Out Side Panel for Results & TXT Download -->
+    <div id="sidePanelBackdrop" onclick="closeSidePanel()" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 hidden transition-opacity"></div>
+
+    <aside id="resultsSidePanel" class="fixed top-0 right-0 h-full w-full sm:w-[520px] bg-white shadow-2xl z-50 transform translate-x-full side-panel flex flex-col border-l border-slate-200">
+        <!-- Panel Header -->
+        <div class="px-6 py-4 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+            <div>
+                <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+                    <i class="fa-solid fa-sparkles text-indigo-600"></i>
+                    <span>Optimized 4-Tone Captions</span>
+                </h3>
+                <p class="text-xs text-slate-500">Created by Naman Swami • Coded by Antigravity</p>
+            </div>
+            <div class="flex items-center space-x-2">
+                <!-- Download TXT Button -->
+                <button onclick="downloadCaptionsTxt()" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold shadow-sm flex items-center gap-1.5 transition-colors">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Download .TXT</span>
+                </button>
+                <!-- Close Button -->
+                <button onclick="closeSidePanel()" class="w-8 h-8 rounded-lg bg-slate-200 hover:bg-slate-300 flex items-center justify-center text-slate-700 transition-colors">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Panel Scrollable Body -->
+        <div class="p-6 overflow-y-auto flex-1 space-y-5">
+            <!-- Formal Card -->
+            <div class="card-studio rounded-xl p-5 border-l-4 border-l-blue-600">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 text-xs font-bold border border-blue-200">
+                        <i class="fa-solid fa-briefcase text-blue-600"></i> Formal Tone
+                    </span>
+                    <button onclick="copyCaption('formal')" class="text-slate-400 hover:text-slate-800 text-xs font-semibold flex items-center gap-1">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+                <p id="caption-formal" class="text-sm text-slate-700 leading-relaxed"></p>
+            </div>
+
+            <!-- Sarcastic Card -->
+            <div class="card-studio rounded-xl p-5 border-l-4 border-l-purple-600">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-purple-50 text-purple-700 text-xs font-bold border border-purple-200">
+                        <i class="fa-solid fa-comment-dots text-purple-600"></i> Sarcastic Tone
+                    </span>
+                    <button onclick="copyCaption('sarcastic')" class="text-slate-400 hover:text-slate-800 text-xs font-semibold flex items-center gap-1">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+                <p id="caption-sarcastic" class="text-sm text-slate-700 leading-relaxed"></p>
+            </div>
+
+            <!-- Humorous Tech Card -->
+            <div class="card-studio rounded-xl p-5 border-l-4 border-l-indigo-600">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-indigo-50 text-indigo-700 text-xs font-bold border border-indigo-200">
+                        <i class="fa-solid fa-code text-indigo-600"></i> Humorous Tech
+                    </span>
+                    <button onclick="copyCaption('humorous_tech')" class="text-slate-400 hover:text-slate-800 text-xs font-semibold flex items-center gap-1">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+                <p id="caption-humorous_tech" class="text-sm text-slate-700 leading-relaxed"></p>
+            </div>
+
+            <!-- Humorous Non-Tech Card -->
+            <div class="card-studio rounded-xl p-5 border-l-4 border-l-emerald-600">
+                <div class="flex items-center justify-between mb-2.5">
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+                        <i class="fa-solid fa-face-smile text-emerald-600"></i> Humorous Non-Tech
+                    </span>
+                    <button onclick="copyCaption('humorous_non_tech')" class="text-slate-400 hover:text-slate-800 text-xs font-semibold flex items-center gap-1">
+                        <i class="fa-regular fa-copy"></i> Copy
+                    </button>
+                </div>
+                <p id="caption-humorous_non_tech" class="text-sm text-slate-700 leading-relaxed"></p>
+            </div>
+        </div>
+
+        <!-- Panel Footer -->
+        <div class="px-6 py-4 border-t border-slate-200 bg-slate-50 text-center text-xs text-slate-500">
+            ValueStream AI • Created by <span class="font-semibold text-slate-800">Naman Swami</span> • Coded by <span class="font-semibold text-indigo-600">Antigravity</span>
+        </div>
+    </aside>
+
+
+
+    <!-- Toast Feedback Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 px-4 py-2.5 rounded-lg bg-slate-900 text-white shadow-lg text-xs font-medium hidden flex items-center gap-2 z-50">
+        <i class="fa-solid fa-check-circle text-emerald-400"></i>
+        <span id="toastMessage">Copied to clipboard</span>
+    </div>
+
+    <!-- Frontend Script -->
+    <script>
+        let selectedFile = null;
+        let latestAnalysisData = null;
+
+        // API Key Gating & Management
+        function confirmAndUnlockStudio() {
+            const input = document.getElementById('apiKeyInput');
+            const key = input ? input.value.trim() : '';
+            if (!key) {
+                alert('Please enter your Fireworks AI API Key (fw_...) to authorize the models.');
+                return;
+            }
+            localStorage.setItem('FIREWORKS_API_KEY', key);
+            unlockStudioWorkspace(key);
+            showToast('Fireworks AI API Key authorized!');
+        }
+
+        function unlockStudioWorkspace(key) {
+            const gate = document.getElementById('apiKeyGateContainer');
+            const studio = document.getElementById('studioWorkspaceContainer');
+            if (gate) gate.classList.add('hidden');
+            if (studio) studio.classList.remove('hidden');
+            const display = document.getElementById('activeKeyDisplay');
+            if (display) {
+                display.textContent = key ? `User Key (${key.substring(0, 6)}••••••••)` : 'Server Environment Default';
+            }
+        }
+
+        function showApiKeyGate() {
+            const gate = document.getElementById('apiKeyGateContainer');
+            const studio = document.getElementById('studioWorkspaceContainer');
+            if (studio) studio.classList.add('hidden');
+            if (gate) gate.classList.remove('hidden');
+        }
+
+        function loadApiKey() {
+            const savedKey = localStorage.getItem('FIREWORKS_API_KEY') || '';
+            const input = document.getElementById('apiKeyInput');
+            if (input) input.value = savedKey;
+            // If user previously saved a key, automatically unlock studio on page load
+            if (savedKey.trim()) {
+                unlockStudioWorkspace(savedKey);
+            }
+        }
+
+        function toggleApiKeyVisibility() {
+            const input = document.getElementById('apiKeyInput');
+            const icon = document.getElementById('apiKeyEyeIcon');
+            if (!input) return;
+            if (input.type === 'password') {
+                input.type = 'text';
+                if (icon) icon.className = 'fa-solid fa-eye-slash';
+            } else {
+                input.type = 'password';
+                if (icon) icon.className = 'fa-solid fa-eye';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadApiKey);
+
+        const videoInput = document.getElementById('videoInput');
+        const selectedBanner = document.getElementById('selectedBanner');
+        const selectedFilename = document.getElementById('selectedFilename');
+        const selectedFilesize = document.getElementById('selectedFilesize');
+        const analyzeBtn = document.getElementById('analyzeBtn');
+
+        const loadingContainer = document.getElementById('loadingContainer');
+        const agentStatusText = document.getElementById('agentStatusText');
+        const resultsMainContainer = document.getElementById('resultsMainContainer');
+        const openSidePanelBtnContainer = document.getElementById('openSidePanelBtnContainer');
+        const videoPlayer = document.getElementById('videoPlayer');
+
+        // Agent cards
+        const agentCard1 = document.getElementById('agentCard1');
+        const agentCard2 = document.getElementById('agentCard2');
+        const agentCard3 = document.getElementById('agentCard3');
+        const badge1 = document.getElementById('agentStatusBadge1');
+        const badge2 = document.getElementById('agentStatusBadge2');
+        const badge3 = document.getElementById('agentStatusBadge3');
+
+        videoInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                handleFileSelection(e.target.files[0]);
+            }
+        });
+
+        function handleFileSelection(file) {
+            selectedFile = file;
+            selectedFilename.textContent = file.name;
+            selectedFilesize.textContent = `${(file.size / (1024 * 1024)).toFixed(2)} MB`;
+            selectedBanner.classList.remove('hidden');
+
+            // Fix Chrome AbortError: pause before changing src
+            videoPlayer.pause();
+            const fileURL = URL.createObjectURL(file);
+            videoPlayer.src = fileURL;
+            videoPlayer.load();
+        }
+
+        function resetAgentCards() {
+            [agentCard1, agentCard2, agentCard3].forEach(c => {
+                c.className = 'agent-card card-studio rounded-xl p-4 sm:p-5 border border-slate-200 transition-all';
+            });
+            badge1.textContent = 'STANDBY'; badge1.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600';
+            badge2.textContent = 'STANDBY'; badge2.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600';
+            badge3.textContent = 'STANDBY'; badge3.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600';
+        }
+
+        analyzeBtn.addEventListener('click', async () => {
+            if (!selectedFile) return;
+
+            const apiKey = (document.getElementById('apiKeyInput')?.value || localStorage.getItem('FIREWORKS_API_KEY') || '').trim();
+
+            selectedBanner.classList.add('hidden');
+            resultsMainContainer.classList.add('hidden');
+            loadingContainer.classList.remove('hidden');
+            resetAgentCards();
+
+            agentCard1.classList.add('agent-working');
+            badge1.textContent = 'PROCESSING';
+            badge1.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800';
+            agentStatusText.textContent = "Agent 1 Processing: Dual-stream perception extracting audio & visual facts...";
+
+            const formData = new FormData();
+            formData.append('file', selectedFile);
+
+            const headers = {};
+            if (apiKey) {
+                headers['X-Fireworks-API-Key'] = apiKey;
+            }
+
+            try {
+                const response = await fetch('/analyze_job', {
+                    method: 'POST',
+                    headers: headers,
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const err = await response.json();
+                    throw new Error(err.detail || 'Analysis job launch failed');
+                }
+
+                const jobInfo = await response.json();
+                const jobId = jobInfo.job_id;
+
+                const pollInterval = setInterval(async () => {
+                    try {
+                        const statusResp = await fetch(`/job_status/${jobId}`);
+                        if (!statusResp.ok) return;
+                        const statusData = await statusResp.json();
+
+                        if (statusData.stage_message) {
+                            agentStatusText.textContent = statusData.stage_message;
+                        }
+
+                        if (statusData.current_stage === 'agent2') {
+                            agentCard1.classList.remove('agent-working');
+                            agentCard1.classList.add('agent-completed');
+                            badge1.textContent = `${statusData.agent1_sec}s COMPLETED`;
+                            badge1.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+
+                            agentCard2.classList.add('agent-working');
+                            badge2.textContent = 'GENERATING';
+                            badge2.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 text-indigo-800';
+                        } else if (statusData.current_stage === 'agent3') {
+                            agentCard1.classList.remove('agent-working');
+                            agentCard1.classList.add('agent-completed');
+                            if (statusData.agent1_sec) {
+                                badge1.textContent = `${statusData.agent1_sec}s COMPLETED`;
+                                badge1.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+                            }
+                            agentCard2.classList.remove('agent-working');
+                            agentCard2.classList.add('agent-looping');
+                            badge2.textContent = `${statusData.agent2_sec}s LOOPING`;
+                            badge2.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-purple-100 text-purple-800';
+
+                            agentCard3.classList.add('agent-working');
+                            badge3.textContent = 'JUDGING';
+                            badge3.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-cyan-100 text-cyan-800';
+                        }
+
+                        if (statusData.status === 'COMPLETED' && statusData.result) {
+                            clearInterval(pollInterval);
+                            const data = statusData.result;
+                            latestAnalysisData = data;
+
+                            agentCard1.classList.remove('agent-working', 'agent-looping');
+                            agentCard1.classList.add('agent-completed');
+                            badge1.textContent = `${data.agent1_sec ?? statusData.agent1_sec ?? '--'}s COMPLETED`;
+                            badge1.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+
+                            agentCard2.classList.remove('agent-working', 'agent-looping');
+                            agentCard2.classList.add('agent-completed');
+                            badge2.textContent = `${data.agent2_sec ?? statusData.agent2_sec ?? '--'}s COMPLETED`;
+                            badge2.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+
+                            agentCard3.classList.remove('agent-working', 'agent-looping');
+                            agentCard3.classList.add('agent-completed');
+                            badge3.textContent = `${data.agent3_sec ?? statusData.agent3_sec ?? '--'}s COMPLETED`;
+                            badge3.className = 'text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800';
+
+                            renderResults(data);
+                        } else if (statusData.status === 'ERROR') {
+                            clearInterval(pollInterval);
+                            throw new Error(statusData.error || 'Pipeline execution failed');
+                        }
+                    } catch (err) {
+                        clearInterval(pollInterval);
+                        alert('Pipeline Error: ' + err.message);
+                        loadingContainer.classList.add('hidden');
+                        selectedBanner.classList.remove('hidden');
+                    }
+                }, 400);
+
+            } catch (error) {
+                alert('Pipeline Error: ' + error.message);
+                loadingContainer.classList.add('hidden');
+                selectedBanner.classList.remove('hidden');
+            }
+        });
+
+        function renderResults(data) {
+            loadingContainer.classList.add('hidden');
+            resultsMainContainer.classList.remove('hidden');
+            openSidePanelBtnContainer.classList.remove('hidden');
+
+            const captions = data.captions || {};
+            document.getElementById('caption-formal').textContent = captions.formal || '--';
+            document.getElementById('caption-sarcastic').textContent = captions.sarcastic || '--';
+            document.getElementById('caption-humorous_tech').textContent = captions.humorous_tech || '--';
+            document.getElementById('caption-humorous_non_tech').textContent = captions.humorous_non_tech || '--';
+
+            const finalScore = data.final_score ?? '--';
+            document.getElementById('finalScoreVal').textContent = finalScore;
+            document.getElementById('iterationCountVal').textContent = data.iterations_required ?? '--';
+
+            const totalSec = data.total_pipeline_sec ?? data.execution_timings?.total_pipeline_sec ?? '--';
+            const execTimeEl = document.getElementById('executionTimeVal');
+            if (execTimeEl) execTimeEl.textContent = totalSec !== '--' ? `${totalSec}s` : '--';
+
+            const critique = data.latest_critique || {};
+            const judgeABadge = document.getElementById('judgeABadge');
+            const judgeADesc = document.getElementById('judgeADesc');
+            if (critique.text_judge_approved !== undefined) {
+                const gs = critique.grounding_score || 0;
+                const ss = critique.schema_score || 0;
+                const ds = critique.density_score || 0;
+                const textTotal = gs + ss + ds;
+                if (critique.text_judge_approved) {
+                    judgeABadge.textContent = 'PASS (' + textTotal + '/55)';
+                    judgeABadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800';
+                    judgeADesc.textContent = 'Grounding=' + gs + '/30 | Schema=' + ss + '/10 | Density=' + ds + '/15';
+                } else {
+                    judgeABadge.textContent = 'HARD FAIL (' + textTotal + '/55)';
+                    judgeABadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800';
+                    judgeADesc.textContent = 'Grounding=' + gs + '/30 | Schema=' + ss + '/10 | Density=' + ds + '/15';
+                }
+            }
+
+            const judgeBBadge = document.getElementById('judgeBBadge');
+            const judgeBDesc = document.getElementById('judgeBDesc');
+            if (critique.vision_judge_approved !== undefined) {
+                const vs = critique.visual_score || 0;
+                const ts = critique.tone_separation_score || 0;
+                const visionTotal = vs + ts;
+                if (critique.vision_judge_approved) {
+                    judgeBBadge.textContent = 'PASS (' + visionTotal + '/45)';
+                    judgeBBadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800';
+                    judgeBDesc.textContent = 'Visual=' + vs + '/20 | ToneSeparation=' + ts + '/25';
+                } else {
+                    judgeBBadge.textContent = 'HARD FAIL (' + visionTotal + '/45)';
+                    judgeBBadge.className = 'px-2 py-0.5 rounded text-[10px] font-bold bg-red-100 text-red-800';
+                    judgeBDesc.textContent = 'Visual=' + vs + '/20 | ToneSeparation=' + ts + '/25';
+                }
+            }
+
+            const consensusBadge = document.getElementById('consensusBadge');
+            const consensusSummaryDesc = document.getElementById('consensusSummaryDesc');
+            const isHardFail = critique.hard_fail || false;
+            if (finalScore >= 90 && !isHardFail) {
+                consensusBadge.innerHTML = '<i class="fa-solid fa-check-circle mr-1"></i> APPROVED (' + finalScore + '/100)';
+                consensusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300';
+                consensusSummaryDesc.textContent = 'Dual judge panel approved with ' + finalScore + '/100 across ' + (data.iterations_required || 1) + ' iteration(s). gpt-oss-120b + Qwen 3.7 Plus consensus.';
+            } else if (isHardFail) {
+                consensusBadge.innerHTML = '<i class="fa-solid fa-triangle-exclamation mr-1"></i> HARD FAIL (' + finalScore + '/100)';
+                consensusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-red-100 text-red-800 border border-red-300';
+                consensusSummaryDesc.textContent = 'Hard failure detected. Best non-failing draft returned with fallback score ' + finalScore + '/100.';
+            } else {
+                consensusBadge.innerHTML = '<i class="fa-solid fa-rotate mr-1"></i> BEST DRAFT (' + finalScore + '/100)';
+                consensusBadge.className = 'px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-800 border border-amber-300';
+                consensusSummaryDesc.textContent = 'Iteration cap reached. Best non-hard-fail draft returned with score ' + finalScore + '/100.';
+            }
+
+            const telemetry = data.perception_telemetry || {};
+            document.getElementById('videoTypeVal').textContent = telemetry.video_type || 'mixed';
+            const mergedDoc = telemetry.merged_document || (telemetry.context && telemetry.context.visual_scene_descriptions) || 'No perception document available.';
+            document.getElementById('telemetryVisualDesc').textContent = mergedDoc;
+
+            // Structured JudgeCritique binding
+            const sc = (critique && critique.structured_critique) || {};
+            const critiqueBadge = document.getElementById('critiqueStatusBadge');
+            const critiqueCat = document.getElementById('critiqueFailureCategory');
+            const critiqueFix = document.getElementById('critiqueFixDirective');
+            if (critiqueBadge && critiqueCat && critiqueFix) {
+                if (sc.approved || critique.passed_threshold) {
+                    critiqueBadge.textContent = 'APPROVED';
+                    critiqueBadge.className = 'px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800';
+                } else {
+                    critiqueBadge.textContent = 'FLAGGED';
+                    critiqueBadge.className = 'px-2.5 py-0.5 rounded text-[10px] font-bold bg-amber-100 text-amber-800';
+                }
+                critiqueCat.textContent = sc.failure_category || 'NONE';
+                critiqueFix.textContent = sc.fix_directive || critique.feedback_instructions || 'Passed structured evaluation.';
+            }
+
+            const historyList = document.getElementById('critiqueHistoryList');
+            historyList.innerHTML = '';
+            const history = data.critique_history || [];
+            history.forEach((entry) => {
+                const div = document.createElement('div');
+                div.className = 'p-3 rounded-lg bg-slate-50 border border-slate-200 text-xs text-slate-700 font-mono';
+                div.textContent = entry;
+                historyList.appendChild(div);
+            });
+
+            // Automatically open side panel upon completion
+            openSidePanel();
+        }
+
+        function openSidePanel() {
+            document.getElementById('sidePanelBackdrop').classList.remove('hidden');
+            const panel = document.getElementById('resultsSidePanel');
+            panel.classList.remove('translate-x-full');
+        }
+
+        function closeSidePanel() {
+            document.getElementById('sidePanelBackdrop').classList.add('hidden');
+            const panel = document.getElementById('resultsSidePanel');
+            panel.classList.add('translate-x-full');
+        }
+
+        function downloadCaptionsTxt() {
+            if (!latestAnalysisData || !latestAnalysisData.captions) {
+                showToast("No caption data available to download");
+                return;
+            }
+            const c = latestAnalysisData.captions;
+            const score = latestAnalysisData.final_score || 0;
+            const iterations = latestAnalysisData.iterations_required || 1;
+            const vType = (latestAnalysisData.perception_telemetry && latestAnalysisData.perception_telemetry.video_type) || "mixed";
+
+            const txtContent = `====================================================================
+ValueStream AI — Enterprise Video Captioning Report
+Generated: ${new Date().toLocaleString()}
+Created by Naman Swami • Coded by Antigravity
+====================================================================
+
+FINAL ENSEMBLE SCORE: ${score}/100
+ITERATIONS REQUIRED: ${iterations}
+VIDEO PERCEPTION TYPE: ${vType}
+
+--------------------------------------------------------------------
+1. FORMAL TONE
+--------------------------------------------------------------------
+${c.formal}
+
+--------------------------------------------------------------------
+2. SARCASTIC TONE
+--------------------------------------------------------------------
+${c.sarcastic}
+
+--------------------------------------------------------------------
+3. HUMOROUS TECH TONE
+--------------------------------------------------------------------
+${c.humorous_tech}
+
+--------------------------------------------------------------------
+4. HUMOROUS NON-TECH TONE
+--------------------------------------------------------------------
+${c.humorous_non_tech}
+
+====================================================================
+End of Report • ValueStream AI
+====================================================================`;
+
+            const blob = new Blob([txtContent], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `captions_report_${selectedFilename.textContent || 'video'}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("Downloaded TXT report!");
+        }
+
+        function toggleAccordion() {
+            const content = document.getElementById('accordionContent');
+            const icon = document.getElementById('accordionIcon');
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        function copyCaption(tone) {
+            const el = document.getElementById(`caption-${tone}`);
+            if (el) {
+                navigator.clipboard.writeText(el.textContent);
+                showToast(`Copied ${tone.replace('_', ' ')} caption`);
+            }
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 2500);
+        }
+    </script>
+</body>
+</html>
