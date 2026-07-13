@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   valuestream-ai:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: valuestream-ai-pipeline
     ports:
       - "8000:8000"
@@ -10,30 +12,12 @@ services:
       - .env
     environment:
       - PORT=8000
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
     restart: unless-stopped
-name: Build and Push Docker Image
-
-on:
-  push:
-    branches: [ "main" ]
-
-jobs:
-  build-and-push:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Log in to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build and Push Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: ghcr.io/${{ github.repository }}:v1.0
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
