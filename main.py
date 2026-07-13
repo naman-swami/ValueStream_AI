@@ -27,6 +27,15 @@ templates = Jinja2Templates(directory="templates")
 
 
 # ---------------------------------------------------------------------------
+# Health Check Endpoint (Instant Response for Container Evaluation)
+# ---------------------------------------------------------------------------
+@app.get("/health")
+async def health_check():
+    """Lightweight health check endpoint for container evaluation and readiness probes."""
+    return {"status": "ok", "service": "ValueStream AI"}
+
+
+# ---------------------------------------------------------------------------
 # Core Single Video Processor
 # ---------------------------------------------------------------------------
 async def process_single_video_agentic(
